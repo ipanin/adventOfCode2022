@@ -1,3 +1,6 @@
+# Day 4: Camp Cleanup
+# Определение вложенных и пересекающихся пар интервалов
+
 import util
 
 data = util.load_int_lists("input.txt")

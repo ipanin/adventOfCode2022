@@ -1,4 +1,5 @@
 # Day 3: Rucksack Reorganization
+# Поиск совпадающего элемента в 2х и 3х множествах.
 import util
 
 def test(filename, expected1, expected2):
