@@ -10,12 +10,6 @@ def assert_equal(actual, expected):
     else:
         print("OK")
 
-def assert_equal(actual, expected, name):
-    if actual != expected:
-        print(f"{name}. Error, expected = {expected}, actual = {actual}")
-    else:
-        print(f"{name}. {actual} - OK")
-
 def full_name(fname):
     folder = os.path.dirname(os.path.realpath(__file__))
     return os.path.join(folder, fname)
@@ -69,13 +63,10 @@ def load_str_blocks(fname):
         blocks = f.read().rstrip().split('\n\n')
         return [b.split('\n') for b in blocks]
 
-regex = re.compile(r"\D*(\d+)\D*")
 
 def findall_ints(s: str):
-    return [int(x) for x in regex.findall(s)]
+    return [int(x) for x in re.findall(r"\D*(\d+)\D*", s)]
 
-def find_int(s: str):
-    return int(regex.findall(s)[0])
 
 # 1,2->3,4
 # 4,5->6,7
@@ -97,7 +88,7 @@ def load_grid(fname):
         for y,line in enumerate(f):
             for x,c in enumerate(line.rstrip()):
                 grid[x + y*1j] = int(c)
-    return grid
+    return grid, x+1, y+1
 
 def chunks(lst, n):
     for pos in range(0, len(lst), n):

@@ -53,13 +53,13 @@ def dir_sizes(dir_tree):
     return res
 
 
-log = open("input.txt").read().rstrip() # 1390824
+log = open("input.txt").read().rstrip()
 commands = parse_log(log)
 dir_tree = process(commands)
 sizes = sorted(dir_sizes(dir_tree))
 
 p1 = sum(s for s in sizes if s <= 100_000)
-print("Part1", p1)
+print("Part1", p1)  # 1390824
 
 disk_total = 70_000_000
 required = 30_000_000
